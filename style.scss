@@ -1,0 +1,18 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+$cBlue: #05204A;
+$cGreen: #17a398;
+$cYellow: #FFBA08;
+
+body {
+    color: $cGreen;
+}
+
+.wrapper {
+    background-color: $cBlue;
+    height: 100vh;
+}
