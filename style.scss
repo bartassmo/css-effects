@@ -10,10 +10,20 @@ $cYellow: #ffba08;
 $cCherry: #a4243b;
 $cWhite: #ffffff;
 
+@mixin animate() {
+    transition: all 0.4s ease-in-out;
+}
+@mixin pseudo() {
+    content: '';
+    position: absolute;
+    display: block;
+}
+
 body {
     color: $cGreen;
     font-family: 'Rubik', sans-serif;
     font-size: 18px;
+    line-height: 1;
 }
 
 .wrapper {
@@ -51,15 +61,13 @@ body {
 
 .link1 {
     &::after {
-        content: '';
-        display: block;
-        position: absolute;
+        @include pseudo();
         width: 100%;
         height: 1px;
         bottom: -5px;
         background-color: $cYellow;
         z-index: 1;
-        transition: all 0.3s ease-in-out;
+        @include animate();
     }
     &:hover {
         &::after {
@@ -69,15 +77,13 @@ body {
 }
 .link2 {
     &::after {
-        content: '';
-        display: block;
-        position: absolute;
+        @include pseudo();
         width: 25%;
         height: 1px;
         bottom: 0;
         background-color: $cYellow;
         z-index: 1;
-        transition: all 0.3s ease-in-out;
+        @include animate();
     }
     &:hover {
         &::after {
@@ -92,7 +98,7 @@ body {
     background-color: transparent;
     background-position: 100% 0;
     background-size: 220%;
-    transition: all 0.4s ease-in-out;
+    @include animate();
     &:focus {
         color: $cYellow;
         border-color: $cYellow;
@@ -111,7 +117,7 @@ body {
     background-color: transparent;
     background-position: 0 100%;
     background-size: 220%;
-    transition: all 0.4s ease-in-out;
+    @include animate();
     &:focus {
         color: $cYellow;
         border-color: $cYellow;
@@ -122,6 +128,123 @@ body {
         background-position: 100% 0;
         border-color: $cYellow;
         color: $cWhite;
+    }
+}
+.btn5 {
+    background-color: transparent;
+    position: relative;
+    padding: 10px 13px;
+    &::before,
+    &::after {
+        @include pseudo();
+        background-color: $cYellow;
+        width: 0px;
+        height: 0%;
+        @include animate();
+    }
+    &::before {
+        top: 0;
+        left: 0;
+    }
+    &::after {
+        bottom: 0;
+        right: 0;
+    }
+    &:hover {
+        &::before,
+        &::after {
+            width: 2px;
+            height: 75%;
+        }
+    }
+}
+.btn6 {
+    background-color: transparent;
+    position: relative;
+    padding: 10px 13px;
+    &::before,
+    &::after {
+        @include pseudo();
+        background-color: $cYellow;
+        width: 0%;
+        height: 0px;
+        @include animate();
+    }
+    &::before {
+        top: 0;
+        right: 0;
+    }
+    &::after {
+        bottom: 0;
+        left: 0;
+    }
+    &:hover {
+        &::before,
+        &::after {
+            width: 75%;
+            height: 2px;
+        }
+    }
+}
+
+.btn7 {
+    background-color: transparent;
+    position: relative;
+    padding: 10px 13px;
+    &::before,
+    &::after {
+        @include pseudo();
+        background-color: $cYellow;
+        width: 0%;
+        height: 0px;
+        @include animate();
+    }
+    &::before {
+        top: 0;
+        right: 0;
+    }
+    &::after {
+        bottom: 0;
+        left: 0;
+    }
+    &--span {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        width: 100%;
+        height: 100%;
+        &::after,
+        &::before {
+            @include pseudo();
+            background-color: $cYellow;
+            width: 0px;
+            height: 0%;
+            @include animate();
+            transition-delay: 0.4s;
+        }
+        &::before {
+            top: 0;
+            left: 0;
+        }
+        &::after {
+            bottom: 0;
+            right: 0;
+        }
+    }
+    &:hover {
+        &::before,
+        &::after {
+            width: 100%;
+            height: 2px;
+        }
+        .btn7--span {
+            &::after,
+            &::before {
+                width: 2px;
+                height: 100%;
+            }
+        }
     }
 }
 
@@ -144,9 +267,7 @@ body {
     animation: loader1 2s linear infinite;
     &::before,
     &::after {
-        content: '';
-        position: absolute;
-        display: inline-block;
+        @include pseudo();
         left: 0;
         top: -10px;
         width: 150px;
