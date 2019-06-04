@@ -289,6 +289,33 @@ body {
     }
 }
 
+.loader2 {
+    display: inline-flex;
+    align-items: center;
+    width: 120px;
+    justify-content: space-around;
+    span {
+        border-radius: 50%;
+        display: inline-block;
+        border: 2px solid;
+        width: 30px;
+        height: 30px;
+        animation: loader2 1.5s infinite;
+        animation-fill-mode: both;
+        &:nth-child(1) {
+            border-color: $cYellow;
+        }
+        &:nth-child(2) {
+            border-color: $cGreen;
+            animation-delay: 0.2s;
+        }
+        &:nth-child(3) {
+            border-color: $cCherry;
+            animation-delay: 0.4s;
+        }
+    }
+}
+
 @keyframes loader1 {
     to {
         transform: rotate(360deg);
@@ -297,5 +324,16 @@ body {
 @keyframes loader1text {
     to {
         transform: rotate(-360deg);
+    }
+}
+@keyframes loader2 {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0px);
     }
 }
