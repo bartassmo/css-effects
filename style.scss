@@ -35,19 +35,64 @@ body {
 .btn {
     display: inline-block;
     text-decoration: none;
+    text-transform: uppercase;
     color: $cGreen;
     padding: 17px 23px;
+}
+
+.link {
+    display: inline-block;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: $cGreen;
+    position: relative;
+    z-index: 2;
+}
+
+.link1 {
+    &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        bottom: -5px;
+        background-color: $cYellow;
+        z-index: 1;
+        transition: all 0.3s ease-in-out;
+    }
+    &:hover {
+        &::after {
+            height: 50%;
+        }
+    }
+}
+.link2 {
+    &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 25%;
+        height: 1px;
+        bottom: 0;
+        background-color: $cYellow;
+        z-index: 1;
+        transition: all 0.3s ease-in-out;
+    }
+    &:hover {
+        &::after {
+            width: 100%;
+        }
+    }
 }
 
 .btn1 {
     background-image: linear-gradient(90deg, $cYellow 50%, transparent 0);
     border: 1px solid $cGreen;
-    text-transform: uppercase;
     background-color: transparent;
     background-position: 100% 0;
     background-size: 220%;
     transition: all 0.4s ease-in-out;
-
     &:focus {
         color: $cYellow;
         border-color: $cYellow;
@@ -56,6 +101,25 @@ body {
 
     &:hover {
         background-position: 0 100%;
+        border-color: $cYellow;
+        color: $cWhite;
+    }
+}
+.btn2 {
+    background-image: linear-gradient(270deg, $cYellow 50%, transparent 0);
+    border: 1px solid $cGreen;
+    background-color: transparent;
+    background-position: 0 100%;
+    background-size: 220%;
+    transition: all 0.4s ease-in-out;
+    &:focus {
+        color: $cYellow;
+        border-color: $cYellow;
+        outline-color: $cYellow;
+    }
+
+    &:hover {
+        background-position: 100% 0;
         border-color: $cYellow;
         color: $cWhite;
     }
