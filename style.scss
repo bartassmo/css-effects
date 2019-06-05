@@ -39,6 +39,7 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    align-items: center;
     width: 75%;
 }
 
@@ -296,9 +297,6 @@ body {
     }
 }
 
-.loaders {
-}
-
 .loader {
     display: inline-block;
 }
@@ -336,6 +334,16 @@ body {
         animation: loader1text 2s linear infinite;
     }
 }
+@keyframes loader1 {
+    to {
+        transform: rotate(360deg);
+    }
+}
+@keyframes loader1text {
+    to {
+        transform: rotate(-360deg);
+    }
+}
 
 .loader2 {
     display: inline-flex;
@@ -348,7 +356,7 @@ body {
         border: 2px solid;
         width: 30px;
         height: 30px;
-        animation: loader2 1.5s infinite;
+        animation: loader2 1.5s linear infinite;
         animation-fill-mode: both;
         &:nth-child(1) {
             border-color: $cYellow;
@@ -364,24 +372,33 @@ body {
     }
 }
 
-@keyframes loader1 {
-    to {
-        transform: rotate(360deg);
-    }
-}
-@keyframes loader1text {
-    to {
-        transform: rotate(-360deg);
-    }
-}
 @keyframes loader2 {
     0% {
         transform: translateY(0px);
     }
     50% {
-        transform: translateY(-20px);
+        transform: translateY(-25px);
     }
     100% {
         transform: translateY(0px);
+    }
+}
+
+.loader3 {
+    display: inline-flex;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    border: 5px solid;
+    border-color: $cGreen transparent $cGreen transparent;
+    animation: loader3 1s linear infinite;
+}
+
+@keyframes loader3 {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
     }
 }
