@@ -92,6 +92,22 @@ body {
         }
     }
 }
+.link3 {
+    line-height: 1.4;
+    display: inline;
+    background-image: linear-gradient(to bottom, $cYellow 0%, $cYellow 100%);
+    background-repeat: no-repeat;
+    background-size: 0 2px;
+    background-position: 0 100%;
+    @include animate();
+    &--wrapper {
+        width: 250px;
+        text-align: center;
+    }
+    &:hover {
+        background-size: 100% 2px;
+    }
+}
 
 .btn1 {
     background-image: linear-gradient(90deg, $cYellow 50%, transparent 0);
