@@ -309,6 +309,16 @@ body {
     }
 }
 
+.btn8 {
+    padding: 10px 13px;
+    border: 2px solid $cGreen;
+    @include animate();
+    transform-origin: 0 0;
+    &:hover {
+        transform: rotate(25deg);
+    }
+}
+
 .loader {
     display: inline-block;
 }
